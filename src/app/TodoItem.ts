@@ -13,3 +13,15 @@ export class TodoItem {
     this.status = status;
   }
 }
+
+export interface IFilter {
+  searchTerm: string;
+  defaultFilter: boolean;
+  importantFilter: boolean;
+  completedFilter: boolean;
+}
+
+export interface IChangeStatus {
+  item: TodoItem;
+  newStatus: 'default' | 'important' | 'completed';
+}

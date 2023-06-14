@@ -1,9 +1,22 @@
 <div
   [ngClass]="{
-    default: item.status === 'default',
+    'todo-item': true,
     important: item.status === 'important',
-    completed: item.status === 'completed',
+    completed: item.status === 'completed'
   }"
 >
-  {{ item.title }}
+  <div class="title">{{ item.title }}</div>
+  <div class="status">
+    <select
+      [(ngModel)]="item.status"
+      (ngModelChange)="parentEvent.emit(changeStatus($event))"
+    >
+      <option value="default">Default</option>
+      <option value="important">Important</option>
+      <option value="completed">Completed</option>
+    </select>
+  </div>
+  <button class="delete-button" (click)="parentEvent.emit(removeTodoItem())">
+    Delete
+  </button>
 </div>

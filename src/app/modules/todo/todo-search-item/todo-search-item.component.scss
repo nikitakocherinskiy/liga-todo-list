@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+
+  button {
+    background-color: plum; // Лавандовый цвет для кнопки
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

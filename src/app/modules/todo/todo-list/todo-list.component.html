@@ -1,7 +1,11 @@
 <div>
   <app-todo-add-item (parentEvent)="addTodoItem($event)"></app-todo-add-item>
+  <app-todo-search-item
+    (parentEvent)="getFilteredTodoItems($event)"
+  ></app-todo-search-item>
   <app-todo-item
     *ngFor="let item of todoService.todoItems"
     [item]="item"
+    (parentEvent)="changeStatus($event)"
   ></app-todo-item>
 </div>

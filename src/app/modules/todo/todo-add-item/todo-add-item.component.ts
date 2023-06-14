@@ -1,11 +1,16 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { TodoItem } from 'src/app/TodoItem';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-add-item',
   templateUrl: './todo-add-item.component.html',
   styleUrls: ['./todo-add-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoAddItemComponent {
   title: string = '';

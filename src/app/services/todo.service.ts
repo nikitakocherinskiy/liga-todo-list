@@ -6,6 +6,7 @@ import { TodoItem } from '../TodoItem';
 })
 export class TodoService {
   todoItems: TodoItem[] = [];
+  filteredItems: TodoItem[] = [];
 
   addTodoItem(item: TodoItem): void {
     this.todoItems.push(item);
@@ -20,5 +21,34 @@ export class TodoService {
     newStatus: 'default' | 'important' | 'completed'
   ): void {
     item.status = newStatus;
+  }
+
+  getFilteredTodoItems(
+    searchTerm: string,
+    defaultFilter: boolean,
+    importantFilter: boolean,
+    completedFilter: boolean
+  ): TodoItem[] {
+    let filteredItems = this.todoItems;
+
+    if (searchTerm) {
+      filteredItems = filteredItems.filter((item) =>
+        item.title.includes(searchTerm)
+      );
+    }
+    if (defaultFilter) {
+      filteredItems = filteredItems.filter((item) => item.status === 'default');
+    }
+    if (importantFilter) {
+      filteredItems = filteredItems.filter(
+        (item) => item.status === 'important'
+      );
+    }
+    if (completedFilter) {
+      filteredItems = filteredItems.filter(
+        (item) => item.status === 'completed'
+      );
+    }
+    return filteredItems;
   }
 }
