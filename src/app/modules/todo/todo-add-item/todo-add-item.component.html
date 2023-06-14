@@ -1,11 +1,17 @@
 <form (ngSubmit)="parentEvent.emit(addTodoItem())">
   <input
     type="text"
-    [(ngModel)]="title"
+    id="title"
     name="title"
+    [(ngModel)]="title"
     placeholder="Title"
+    #ItemTitle="ngModel"
     required
-    minlength="4"
   />
   <button type="submit">Add</button>
 </form>
+<div *ngIf="ItemTitle.invalid && (ItemTitle.dirty || ItemTitle.touched)">
+  <div *ngIf="ItemTitle.errors?.['required']" class="form-alert">
+    Required field
+  </div>
+</div>
