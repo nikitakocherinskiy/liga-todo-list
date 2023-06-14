@@ -1,0 +1,21 @@
+form {
+  display: flex;
+  margin-bottom: 10px;
+
+  input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: plum;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
