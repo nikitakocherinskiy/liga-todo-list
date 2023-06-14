@@ -1,4 +1,5 @@
 <div>
+  <app-todo-add-item (parentEvent)="addTodoItem($event)"></app-todo-add-item>
   <app-todo-item
     *ngFor="let item of todoService.todoItems"
     [item]="item"

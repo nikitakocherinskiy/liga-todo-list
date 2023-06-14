@@ -13,7 +13,7 @@ export class TodoItemComponent {
     this._item = item;
   }
 
-  get fromParitement(): TodoItem {
+  get item(): TodoItem {
     return this._item;
   }
 }

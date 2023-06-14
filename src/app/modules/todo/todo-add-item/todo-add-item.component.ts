@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { TodoItem } from 'src/app/TodoItem';
-import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-add-item',
@@ -9,15 +8,18 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class TodoAddItemComponent {
   title: string = '';
-  constructor(public todoService: TodoService) {}
+  constructor() {}
 
-  addTodoItem(): void {
+  addTodoItem(): TodoItem {
     const item = new TodoItem(
       Math.floor(Math.random() * 100),
       this.title,
       'default'
     );
-    this.todoService.addTodoItem(item);
     this.title = '';
+    return item;
   }
+
+  @Output()
+  public parentEvent = new EventEmitter();
 }
