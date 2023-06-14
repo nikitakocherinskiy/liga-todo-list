@@ -20,6 +20,11 @@ export class TodoListComponent {
     this.todoService.changeStatus(itemStatus.item, itemStatus.newStatus);
   }
 
+  removeTodoItem(id: number) {
+    console.log(id);
+    this.todoService.deleteTodoItem(id);
+  }
+
   getFilteredTodoItems(filters: IFilter): void {
     console.log(
       filters.searchTerm,

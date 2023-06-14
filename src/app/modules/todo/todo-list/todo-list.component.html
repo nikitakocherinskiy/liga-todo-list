@@ -4,8 +4,9 @@
     (parentEvent)="getFilteredTodoItems($event)"
   ></app-todo-search-item>
   <app-todo-item
-    *ngFor="let item of todoService.todoItems"
+    *ngFor="let item of todoService.filteredItems"
     [item]="item"
+    (parentEvent)="removeTodoItem($event)"
     (parentEvent)="changeStatus($event)"
   ></app-todo-item>
 </div>

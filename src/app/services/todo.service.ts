@@ -10,10 +10,12 @@ export class TodoService {
 
   addTodoItem(item: TodoItem): void {
     this.todoItems.push(item);
+    this.filteredItems.push(item);
   }
 
   deleteTodoItem(id: number): void {
     this.todoItems = this.todoItems.filter((item) => item.id !== id);
+    this.filteredItems = this.filteredItems.filter((item) => item.id !== id);
   }
 
   changeStatus(
@@ -28,27 +30,9 @@ export class TodoService {
     defaultFilter: boolean,
     importantFilter: boolean,
     completedFilter: boolean
-  ): TodoItem[] {
-    let filteredItems = this.todoItems;
-
-    if (searchTerm) {
-      filteredItems = filteredItems.filter((item) =>
-        item.title.includes(searchTerm)
-      );
-    }
-    if (defaultFilter) {
-      filteredItems = filteredItems.filter((item) => item.status === 'default');
-    }
-    if (importantFilter) {
-      filteredItems = filteredItems.filter(
-        (item) => item.status === 'important'
-      );
-    }
-    if (completedFilter) {
-      filteredItems = filteredItems.filter(
-        (item) => item.status === 'completed'
-      );
-    }
-    return filteredItems;
+  ): void {
+    this.filteredItems = this.todoItems.filter((task) =>
+      task.title.includes(searchTerm)
+    );
   }
 }
