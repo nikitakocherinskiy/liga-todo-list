@@ -1,0 +1,9 @@
+<div
+  [ngClass]="{
+    default: item.status === 'default',
+    important: item.status === 'important',
+    completed: item.status === 'completed',
+  }"
+>
+  {{ item.title }}
+</div>
