@@ -34,5 +34,20 @@ export class TodoService {
     this.filteredItems = this.todoItems.filter((task) =>
       task.title.includes(searchTerm)
     );
+    if (completedFilter) {
+      this.filteredItems = this.todoItems.filter(
+        (item) => item.status === 'completed'
+      );
+    }
+    if (importantFilter) {
+      this.filteredItems = this.todoItems.filter(
+        (item) => item.status === 'important'
+      );
+    }
+    if (defaultFilter) {
+      this.filteredItems = this.todoItems.filter(
+        (item) => item.status === 'default'
+      );
+    }
   }
 }
